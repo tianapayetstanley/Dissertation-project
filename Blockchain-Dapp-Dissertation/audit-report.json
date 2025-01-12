@@ -1,0 +1,690 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@ethersproject/abi": {
+      "name": "@ethersproject/abi",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@ethersproject/hash"
+      ],
+      "effects": [
+        "web3-eth-abi"
+      ],
+      "range": "5.0.10 - 5.7.0",
+      "nodes": [
+        "node_modules/@ethersproject/abi"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@ethersproject/abstract-provider": {
+      "name": "@ethersproject/abstract-provider",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@ethersproject/transactions"
+      ],
+      "effects": [
+        "@ethersproject/abstract-signer"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@ethersproject/abstract-provider"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@ethersproject/abstract-signer": {
+      "name": "@ethersproject/abstract-signer",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@ethersproject/abstract-provider"
+      ],
+      "effects": [
+        "@ethersproject/hash"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@ethersproject/abstract-signer"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@ethersproject/hash": {
+      "name": "@ethersproject/hash",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@ethersproject/abstract-signer"
+      ],
+      "effects": [
+        "@ethersproject/abi"
+      ],
+      "range": "5.0.6 - 5.7.0",
+      "nodes": [
+        "node_modules/@ethersproject/hash"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@ethersproject/signing-key": {
+      "name": "@ethersproject/signing-key",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "elliptic"
+      ],
+      "effects": [
+        "@ethersproject/transactions"
+      ],
+      "range": "<=5.7.0",
+      "nodes": [
+        "node_modules/@ethersproject/signing-key"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@ethersproject/transactions": {
+      "name": "@ethersproject/transactions",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@ethersproject/signing-key"
+      ],
+      "effects": [
+        "@ethersproject/abstract-provider",
+        "web3-core-method"
+      ],
+      "range": "<=5.7.0",
+      "nodes": [
+        "node_modules/@ethersproject/transactions"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "elliptic": {
+      "name": "elliptic",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1098593,
+          "name": "elliptic",
+          "dependency": "elliptic",
+          "title": "Elliptic's EDDSA missing signature length check",
+          "url": "https://github.com/advisories/GHSA-f7q4-pwc6-w24p",
+          "severity": "low",
+          "cwe": [
+            "CWE-347"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+          },
+          "range": ">=4.0.0 <=6.5.6"
+        },
+        {
+          "source": 1098594,
+          "name": "elliptic",
+          "dependency": "elliptic",
+          "title": "Elliptic's ECDSA missing check for whether leading bit of r and s is zero",
+          "url": "https://github.com/advisories/GHSA-977x-g7h5-7qgw",
+          "severity": "low",
+          "cwe": [
+            "CWE-130"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+          },
+          "range": ">=2.0.0 <=6.5.6"
+        },
+        {
+          "source": 1098595,
+          "name": "elliptic",
+          "dependency": "elliptic",
+          "title": "Elliptic allows BER-encoded signatures",
+          "url": "https://github.com/advisories/GHSA-49q7-c7j4-3p7m",
+          "severity": "low",
+          "cwe": [
+            "CWE-347"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+          },
+          "range": ">=5.2.1 <=6.5.6"
+        },
+        {
+          "source": 1101387,
+          "name": "elliptic",
+          "dependency": "elliptic",
+          "title": "Valid ECDSA signatures erroneously rejected in Elliptic",
+          "url": "https://github.com/advisories/GHSA-fc9h-whq2-v747",
+          "severity": "low",
+          "cwe": [
+            "CWE-347"
+          ],
+          "cvss": {
+            "score": 4.8,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+          },
+          "range": "<6.6.0"
+        },
+        {
+          "source": 1101424,
+          "name": "elliptic",
+          "dependency": "elliptic",
+          "title": "Elliptic's verify function omits uniqueness validation",
+          "url": "https://github.com/advisories/GHSA-434g-2637-qmqr",
+          "severity": "low",
+          "cwe": [
+            "CWE-347"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": "<6.5.6"
+        }
+      ],
+      "effects": [
+        "@ethersproject/signing-key"
+      ],
+      "range": "<=6.5.7",
+      "nodes": [
+        "node_modules/@ethersproject/signing-key/node_modules/elliptic"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "eth-lib": {
+      "name": "eth-lib",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "servify",
+        "ws"
+      ],
+      "effects": [
+        "swarm-js"
+      ],
+      "range": "<=0.1.29",
+      "nodes": [
+        "node_modules/eth-lib"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "request": {
+      "name": "request",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1096727,
+          "name": "request",
+          "dependency": "request",
+          "title": "Server-Side Request Forgery in Request",
+          "url": "https://github.com/advisories/GHSA-p8p7-x288-28g6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-918"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": "<=2.88.2"
+        },
+        "tough-cookie"
+      ],
+      "effects": [
+        "servify"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/request"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "servify": {
+      "name": "servify",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "request"
+      ],
+      "effects": [
+        "eth-lib"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/servify"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "swarm-js": {
+      "name": "swarm-js",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "eth-lib",
+        "tar"
+      ],
+      "effects": [
+        "web3-bzz"
+      ],
+      "range": ">=0.1.36",
+      "nodes": [
+        "node_modules/swarm-js"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "tar": {
+      "name": "tar",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1097493,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "Denial of service while parsing a tar file due to lack of folders count validation",
+          "url": "https://github.com/advisories/GHSA-f5x3-32g6-xq36",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+          },
+          "range": "<6.2.1"
+        }
+      ],
+      "effects": [
+        "swarm-js"
+      ],
+      "range": "<6.2.1",
+      "nodes": [
+        "node_modules/tar"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "tough-cookie": {
+      "name": "tough-cookie",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1097682,
+          "name": "tough-cookie",
+          "dependency": "tough-cookie",
+          "title": "tough-cookie Prototype Pollution vulnerability",
+          "url": "https://github.com/advisories/GHSA-72xf-g2v4-qvf3",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+          },
+          "range": "<4.1.3"
+        }
+      ],
+      "effects": [
+        "request"
+      ],
+      "range": "<4.1.3",
+      "nodes": [
+        "node_modules/tough-cookie"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "web3": {
+      "name": "web3",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "web3-bzz",
+        "web3-core",
+        "web3-eth",
+        "web3-eth-personal",
+        "web3-net",
+        "web3-shh"
+      ],
+      "effects": [],
+      "range": "1.0.0-beta.1 - 3.0.0-rc.5",
+      "nodes": [
+        "node_modules/web3"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "web3-bzz": {
+      "name": "web3-bzz",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "swarm-js"
+      ],
+      "effects": [
+        "web3"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/web3-bzz"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "web3-core": {
+      "name": "web3-core",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core-method"
+      ],
+      "effects": [
+        "web3-eth",
+        "web3-eth-accounts",
+        "web3-eth-contract",
+        "web3-eth-ens",
+        "web3-eth-personal",
+        "web3-net",
+        "web3-shh"
+      ],
+      "range": "1.2.9-rc.0 - 3.0.0-rc.5",
+      "nodes": [
+        "node_modules/web3-core"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "web3-core-method": {
+      "name": "web3-core-method",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@ethersproject/transactions"
+      ],
+      "effects": [
+        "web3-core",
+        "web3-eth",
+        "web3-eth-accounts",
+        "web3-eth-contract",
+        "web3-eth-personal",
+        "web3-net",
+        "web3-shh"
+      ],
+      "range": ">=1.2.9-rc.0",
+      "nodes": [
+        "node_modules/web3-core-method"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "web3-eth": {
+      "name": "web3-eth",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core",
+        "web3-core-method",
+        "web3-eth-abi",
+        "web3-eth-accounts",
+        "web3-eth-contract",
+        "web3-eth-ens",
+        "web3-eth-personal",
+        "web3-net"
+      ],
+      "effects": [
+        "web3"
+      ],
+      "range": "<=1.0.0 || 1.2.9-rc.0 - 3.0.0-rc.5 || 4.0.2-dev.023f02d.0 - 4.0.2-dev.f8a2533.0 || 4.0.3-dev.602dada.0 - 4.0.3-dev.d12dc7e.0 || 4.0.4-dev.1361787.0 - 4.0.4-dev.f5b4d7d.0 || 4.1.1-dev.1cdc86c.0 - 4.1.1-dev.f4fd498.0 || 4.1.2-dev.054033f.0 - 4.1.2-dev.e4ba45c.0 || 4.2.1-dev.3060994.0 - 4.2.1-dev.e760667.0",
+      "nodes": [
+        "node_modules/web3-eth"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "web3-eth-abi": {
+      "name": "web3-eth-abi",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@ethersproject/abi"
+      ],
+      "effects": [
+        "web3-eth",
+        "web3-eth-contract",
+        "web3-eth-ens"
+      ],
+      "range": "1.7.4-rc.0 - 4.1.3-dev.e760667.0",
+      "nodes": [
+        "node_modules/web3-eth-abi"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "web3-eth-accounts": {
+      "name": "web3-eth-accounts",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core",
+        "web3-core-method"
+      ],
+      "effects": [],
+      "range": "<=1.0.0 || 1.2.9-rc.0 - 3.0.0-rc.5",
+      "nodes": [
+        "node_modules/web3-eth-accounts"
+      ],
+      "fixAvailable": true
+    },
+    "web3-eth-contract": {
+      "name": "web3-eth-contract",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core",
+        "web3-core-method",
+        "web3-eth-abi"
+      ],
+      "effects": [],
+      "range": "<=1.0.0 || 1.2.9-rc.0 - 3.0.0-rc.5 || 4.0.2-dev.023f02d.0 - 4.0.2-dev.f8a2533.0 || 4.0.3-dev.602dada.0 - 4.0.3-dev.d12dc7e.0 || 4.0.4-dev.1361787.0 - 4.0.4-rc.0 || 4.0.5-dev.1cdc86c.0 - 4.0.5-dev.f4fd498.0 || 4.0.6-dev.054033f.0 - 4.0.6-dev.e4ba45c.0",
+      "nodes": [
+        "node_modules/web3-eth-contract"
+      ],
+      "fixAvailable": true
+    },
+    "web3-eth-ens": {
+      "name": "web3-eth-ens",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core",
+        "web3-eth-abi",
+        "web3-eth-contract"
+      ],
+      "effects": [],
+      "range": "1.2.9-rc.0 - 3.0.0-rc.5",
+      "nodes": [
+        "node_modules/web3-eth-ens"
+      ],
+      "fixAvailable": true
+    },
+    "web3-eth-personal": {
+      "name": "web3-eth-personal",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core",
+        "web3-core-method",
+        "web3-net"
+      ],
+      "effects": [],
+      "range": "<=1.0.0 || 1.2.9-rc.0 - 3.0.0-rc.5 || 4.0.9-dev.408125.0",
+      "nodes": [
+        "node_modules/web3-eth-personal"
+      ],
+      "fixAvailable": true
+    },
+    "web3-net": {
+      "name": "web3-net",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core",
+        "web3-core-method"
+      ],
+      "effects": [],
+      "range": "1.2.9-rc.0 - 3.0.0-rc.5 || 4.0.8-dev.408125.0",
+      "nodes": [
+        "node_modules/web3-net"
+      ],
+      "fixAvailable": true
+    },
+    "web3-shh": {
+      "name": "web3-shh",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "web3-core",
+        "web3-core-method",
+        "web3-net"
+      ],
+      "effects": [
+        "web3"
+      ],
+      "range": "<=1.0.0 || 1.2.9-rc.0 - 1.10.4",
+      "nodes": [
+        "node_modules/web3-shh"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    },
+    "ws": {
+      "name": "ws",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1098395,
+          "name": "ws",
+          "dependency": "ws",
+          "title": "ws affected by a DoS when handling a request with many HTTP headers",
+          "url": "https://github.com/advisories/GHSA-3h5v-q93c-6h6q",
+          "severity": "high",
+          "cwe": [
+            "CWE-476"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=2.1.0 <5.2.4"
+        }
+      ],
+      "effects": [
+        "eth-lib"
+      ],
+      "range": "2.1.0 - 5.2.3",
+      "nodes": [
+        "node_modules/ws"
+      ],
+      "fixAvailable": {
+        "name": "web3",
+        "version": "4.16.0",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 17,
+      "moderate": 6,
+      "high": 3,
+      "critical": 0,
+      "total": 26
+    },
+    "dependencies": {
+      "prod": 364,
+      "dev": 0,
+      "optional": 0,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 363
+    }
+  }
+}
