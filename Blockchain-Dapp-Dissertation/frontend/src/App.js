@@ -11,7 +11,7 @@ class App extends Component {
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
-    //fetch account 0x86Af90deC474618DFcB911e2617B74773c3b1b39
+    
   }
 
   constructor(props) {
