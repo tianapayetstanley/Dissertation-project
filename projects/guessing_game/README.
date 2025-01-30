@@ -1,0 +1,47 @@
+WHAT IS AN ENUM?
+
+- Allow to define a type by enumerating its possible variants.
+- RUST custom datatype 
+- A way to group values under one type
+
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
+//instead of using seperate varibles for each color in the traffic TrafficLight
+//use an enum to have variants of an instance
+
+use std::io;  //i/o libary to get user input comes frm standard libary aka std
+//if you want to import something not in the prelude use 'use'
+
+fn main() { //fn is like def for a function in rust
+    println!("Guess the number!");
+
+    println!("Please input your guess.");
+
+    //create var to store user input
+    //vars in rust are immutable/unchangable unless...
+    //you use the mut before the var name
+    //the colons indicate the type of the value assign to the guess
+    let mut guess = String::new();
+
+
+    //recieve user input using io libary imported earlier
+    //call readline method to get inout from user
+    //& is a reference, used to access code wihtout needing to copy data into memory
+    //& are by default immuatble, need to use mut if you need changes
+    // we use mut again to make it changeable
+    //readline takes user input is typed and appends into that string, with overwriting
+
+    //result is an enum with 2 possible values: 
+    //the Ok(value) - operation succeeded and val contains result of op
+    //Err(error) - oper failed, error contains info on why
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+        //
+
+    println!("Y0u guessed: {}", guess);
+}
