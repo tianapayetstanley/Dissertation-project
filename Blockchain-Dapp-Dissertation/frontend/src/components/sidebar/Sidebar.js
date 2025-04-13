@@ -1,25 +1,21 @@
 import React from 'react';
+import boxLogo from '../../assets/images/box.png'; // Adjust if path is different
 import './Sidebar.css';
 
-const Sidebar = () => (
-  <div className="sidebar">
-    <div className="logo">
-      <img src="/assets/logo.svg" alt="Immutable Aid Logo" />
-    </div>
-    <nav>
-      <ul>
-        <li>
-          <img src="/assets/home-icon.svg" alt="Home" /> Home
-        </li>
-        <li>
-          <img src="/assets/track-icon.svg" alt="Track Aid Boxes" /> Track Boxes
-        </li>
-        <li>
-          <img src="/assets/about-icon.svg" alt="About Us" /> About Us
-        </li>
+const Sidebar = () => {
+  return (
+    <div className="sidebar">
+      <div className="sidebar-logo">
+        <img src={boxLogo} alt="Immutable Aid Logo" className="logo-img" />
+        <span className="logo-text">Immutable Aid</span>
+      </div>
+      <ul className="sidebar-links">
+        <li>🏠 Home</li>
+        <li>📦 Track Boxes</li>
+        <li>ℹ️ About Us</li>
       </ul>
-    </nav>
-  </div>
-);
+    </div>
+  );
+};
 
 export default Sidebar;
