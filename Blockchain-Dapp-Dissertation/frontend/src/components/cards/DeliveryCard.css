@@ -1,0 +1,122 @@
+/* Delivery Card Styles */
+.card-container {
+  border: 2px solid #5932EA;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 20px 50px 8px rgba(220, 220, 220, 0.5);
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.aid-box-label {
+  color: #A3A3A3;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.aid-box-id {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+
+.aid-box-type {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.aid-box-image {
+  width: 100px;
+  height: auto;
+}
+
+.locations {
+  margin-top: 1rem;
+}
+
+.location-text {
+  font-size: 14px;
+  color: #444;
+  margin: 0 0 4px;
+}
+
+/* Status Label */
+.status-label {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 0.5rem;
+  width: fit-content;
+}
+
+.in-receiving {
+  background-color: #3b82f6; /* blue */
+}
+
+.dispatched {
+  background-color: #f97316; /* orange */
+}
+
+.delivered {
+  background-color: #22C55E; /* green */
+}
+
+/* Sender Section */
+.sender-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.sender-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sender-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.sender-name {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}
+
+.sender-org {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.sender-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sender-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
