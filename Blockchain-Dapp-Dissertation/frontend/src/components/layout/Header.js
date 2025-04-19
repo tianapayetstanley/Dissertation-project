@@ -1,9 +1,9 @@
 import React from 'react';
-import boxLogo from '../../assets/images/box.png'; // ✅ Update this path to match your folder
+import boxLogo from '../../assets/images/box.png'; 
 
 const Header = () => {
   return (
-    <div style={{ backgroundColor: 'hotpink', padding: '1rem', display: 'flex', alignItems: 'center' }}>
+    <div style={{ backgroundColor: 'green', padding: '1rem', display: 'flex', alignItems: 'center' }}>
       <img
         src={boxLogo}
         alt="Box Logo"
