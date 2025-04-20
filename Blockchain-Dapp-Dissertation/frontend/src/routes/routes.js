@@ -11,6 +11,7 @@ const AppRoutes = ({ account }) => {
     <Routes>
       <Route path="/" element={<DashboardPage />} />
       <Route path="/deliveries" element={<DeliveriesPage />} />
+      <Route path="/organizations" element={<OrgPage />} />
       <Route
         path="/org"
         element={account ? <OrgPage account={account} /> : <Navigate to="/" />}

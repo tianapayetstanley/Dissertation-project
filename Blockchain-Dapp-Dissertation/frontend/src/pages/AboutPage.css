@@ -1,0 +1,83 @@
+/* AboutPage.css */
+.about-page {
+    padding: 2rem;
+    color: #1f2937;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    color: #16a34a;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+  
+  .why-blockchain,
+  .tech,
+  .creator {
+    margin-bottom: 2rem;
+  }
+  
+  .why-blockchain h2,
+  .features h2,
+  .tech h2,
+  .creator h2 {
+    font-size: 1.8rem;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .why-blockchain p,
+  .tech p,
+  .creator p {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.6;
+  }
+  
+  .features {
+    margin-bottom: 3rem;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .feature {
+    background: #f0fdf4;
+    border: 1px solid #d1fae5;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature p {
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.4;
+  }
+  
