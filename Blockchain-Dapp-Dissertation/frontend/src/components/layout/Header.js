@@ -3,7 +3,7 @@ import boxLogo from '../../assets/images/box.png';
 
 const Header = () => {
   return (
-    <div style={{ backgroundColor: 'green', padding: '1rem', display: 'flex', alignItems: 'center' }}>
+    <div style={{ backgroundColor: 'blue', padding: '1rem', display: 'flex', alignItems: 'center' }}>
       <img
         src={boxLogo}
         alt="Box Logo"

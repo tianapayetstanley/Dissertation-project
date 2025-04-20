@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Web3 from 'web3';
 import './App.css';
 import Sidebar from './components/sidebar/Sidebar';
@@ -6,11 +6,10 @@ import Header from './components/layout/Header';
 import SearchHeader from './components/layout/SearchHeader';
 import DeliveryCard from './components/cards/DeliveryCard';
 import { aidDeliveries } from './components/data/mockData';
+import AppRoutes from './routes/routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// account: stores the Ethereum account connected to the DApp
-// searchValue: what the user types into the search input
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +18,6 @@ class App extends Component {
     };
   }
 
-  // connects to local eth node or metamask and gets first wallet address and saves to state
   componentDidMount() {
     this.loadBlockchainData();
   }
@@ -30,7 +28,6 @@ class App extends Component {
     this.setState({ account: accounts[0] });
   }
 
-  // search component, controls whats in search bar and starts live filtering on delivery cards
   render() {
     const { searchValue } = this.state;
 
@@ -43,7 +40,6 @@ class App extends Component {
       <div className="app-wrapper d-flex">
         <Sidebar />
         <div className="main-content flex-grow-1 position-relative">
-          {/* Map behind everything */}
           <div className="map-background">
             <iframe
               title="Delivery Route"
@@ -56,7 +52,6 @@ class App extends Component {
             ></iframe>
           </div>
 
-          {/* Overlay content */}
           <div className="content-overlay">
             <Header />
             <div className="text-end mb-2 px-3">
@@ -65,7 +60,6 @@ class App extends Component {
               </small>
             </div>
 
-            {/* Blurred container with search and cards */}
             <div className="blurred-container">
               <SearchHeader
                 searchValue={this.state.searchValue}
@@ -74,6 +68,7 @@ class App extends Component {
               {filteredDeliveries.map((delivery) => (
                 <DeliveryCard key={delivery.id} delivery={delivery} />
               ))}
+              <AppRoutes account={this.state.account} />
             </div>
           </div>
         </div>
