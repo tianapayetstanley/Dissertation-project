@@ -29,6 +29,21 @@ const App = () => {
     d.senderName.toLowerCase().includes(searchValue.toLowerCase())
   );
 
+  const getPageTitle = (path) => {
+    switch (path) {
+      case '/':
+        return 'Immutable Aid Dashboard';
+      case '/about':
+        return 'Immutable Aid - About';
+      case '/organizations':
+        return 'Immutable Aid - Organizations';
+      case '/deliveries':
+        return 'Immutable Aid - Deliveries';
+      default:
+        return 'Immutable Aid';
+    }
+  };
+
   const isDashboard = location.pathname === '/';
 
   return (
@@ -48,12 +63,15 @@ const App = () => {
         </div>
 
         <div className="content-overlay">
-          <Header />
+          <div className="header-bar">
+            <h1 className="header-title">{getPageTitle(location.pathname)}</h1>
+          </div>
+
           <div className="text-end mb-2 px-3">
             <small className="text-muted">Connected account: {account}</small>
           </div>
 
-          <div className="blurred-container">
+          <div className="blurred-container centered-content">
             {isDashboard && (
               <>
                 <SearchHeader
