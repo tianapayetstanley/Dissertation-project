@@ -1,0 +1,25 @@
+npx hardhat node
+await ethers.provider.getBalance("0x10631CaA798eE703fc681182BB18390510d7D95b")
+}])
+  value: "0x56BC75E2D63100000" // 100 ETH in hex (or use less if needed)
+  to: "0x10631CaA798eE703fc681182BB18390510d7D95b",   // your MetaMask account
+  from: "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266", // Hardhat default account with 10,000 ETH
+await ethers.provider.send("eth_sendTransaction", [{
+}])
+  value: "0x56BC75E2D63100000" // 100 ETH in hex (or use less if you prefer)
+  to: "0x10631CaA798eE703fc681182BB18390510d7D95b", // your MetaMask account
+  from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", // default hardhat account
+await ethers.provider.send("eth_sendTransaction", [{
+}])
+  value: "0x56BC75E2D63100000" // 100 ETH in hex
+  to: "0x10631CaA798eE703fc681182BB18390510d7D95b",  // Your MetaMask account
+  from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",  // Account #0 from Hardhat
+await ethers.provider.send("eth_sendTransaction", [{
+])
+  "0x56BC75E2D63100000" // 100 ETH
+  "0x10631CaA798eE703fc681182BB18390510d7D95b", // your MetaMask address
+await ethers.provider.send("hardhat_setBalance", [
+])
+  "0x56BC75E2D63100000" // 👈 100 ETH in hex (that's 100000000000000000000 in decimal)
+  "0x10631CaA798eE703fc681182BB18390510d7D95b", // 👈 Your MetaMask address
+await ethers.provider.send("hardhat_setBalance", [

@@ -1,6 +1,6 @@
 import { ethers } from "ethers";//code for connecting to metamask
 
-export const CONTRACT_ADDRESS = "0x3237E990D81F9945AC6a3019E2fc2D73C1d7A25";// npx hardhat run ...
+export const CONTRACT_ADDRESS = "0x482eFd068EaE5329BC00f9f775C0eeFF559B0864";// npx hardhat run ...
 
 export const ABI = [
   "function shareFunds(address toOrg, uint256 boxId) external payable",

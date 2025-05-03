@@ -1,8 +1,17 @@
 import React from 'react';
 import './OrgPage.css';
 import { orgs } from '../components/data/mockOrgs';
-import { getContract } from "../contracts/aidBoxTracker";
+
+import { connectWallet, getContract } from "../utils/ethereum"; // ✅ MetaMask + contract helper
+import { ethers } from "ethers"; // ✅ Needed for parseEther and address checksum
 import { toast } from 'react-toastify';
+
+// ❌ Removed because it's unused directly in this file (you use getContract instead)
+// import AidBoxTracker from "../contracts/AidBoxTracker.json"; 
+
+// ❌ Also removed: unused duplicate contract getter
+// import { getContract as getAidBoxContract } from "../contracts/aidBoxTracker"; 
+
 
 const OrgPage = ({ contract, account }) => {
   const handleCollaboration = async (orgAddress, orgName) => {
@@ -20,6 +29,34 @@ const OrgPage = ({ contract, account }) => {
       toast.error("❌ Collaboration failed: " + err.message);
     }
   };
+
+  const handleShareFunds = async (recipientAddress) => {
+    try {
+      console.log("💡 raw recipient address:", recipientAddress);
+  
+      const connected = await connectWallet();
+      if (!connected) {
+        return;
+      }
+  
+      const contract = getContract();
+      const boxId = 0;
+  
+      const checksummedAddress = ethers.utils.getAddress(recipientAddress);
+      console.log("✅ checksummed address:", checksummedAddress);
+  
+      const tx = await contract.shareFunds(checksummedAddress, boxId, {
+        value: ethers.utils.parseEther("0.00001"),
+      });
+  
+      await tx.wait();
+      toast.success("💸 0.00001 ETH shared successfully");
+    } catch (err) {
+      toast.error("❌ Sharing funds failed: " + err.message);
+    }
+  };
+  
+  
 
   return (
     <div className="blurred-container org-page">
@@ -43,7 +80,12 @@ const OrgPage = ({ contract, account }) => {
               >
                 Collaborate
               </button>
-              <button className="btn btn-outline-success">Share Funds</button>
+              <button
+                className="btn btn-outline-success"
+                onClick={() => handleShareFunds(org.address)} // 👈 wired here
+              >
+                Share Funds
+              </button>
             </div>
           </div>
         ))}

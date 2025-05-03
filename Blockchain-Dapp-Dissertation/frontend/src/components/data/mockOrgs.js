@@ -1,20 +1,20 @@
 export const orgs = [
   {
-    id: "org1",
+    id: 1,
     name: "Red Cross",
+    logo: "🩺 Red Cross",
     description: "Disaster relief and emergency support.",
     location: "Global",
-    tags: ["Relief", "Medical", "Global"],
-    logo: "/images/red-cross-logo.png",
-    address: "0x1234567890abcdef1234567890abcdef12345678"
+    address: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // ✅ Already checksummed
+    tags: ["Relief", "Medical", "Global"]
   },
   {
-    id: "org2",
+    id: 2,
     name: "UNICEF",
+    logo: "👶 UNICEF",
     description: "Aid and development programs for children.",
     location: "Worldwide",
-    tags: ["Children", "Education", "Health"],
-    logo: "/images/unicef-logo.png",
-    address: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+    address: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3", // ✅ Already checksummed
+    tags: ["Children", "Education", "Health"]
   }
 ];
