@@ -1,26 +1,20 @@
 export const orgs = [
   {
-    id: 1,
-    name: 'Red Cross',
-    location: 'Global',
-    description: 'Humanitarian aid and emergency response.',
-    tags: ['medical', 'disaster'],
-    logo: require('../../assets/images/User.png'),
+    id: "org1",
+    name: "Red Cross",
+    description: "Disaster relief and emergency support.",
+    location: "Global",
+    tags: ["Relief", "Medical", "Global"],
+    logo: "/images/red-cross-logo.png",
+    address: "0x1234567890abcdef1234567890abcdef12345678"
   },
   {
-    id: 2,
-    name: 'WaterAid',
-    location: 'Africa & Asia',
-    description: 'Providing clean water and sanitation.',
-    tags: ['water', 'hygiene'],
-    logo: require('../../assets/images/User.png'),
-  },
-  {
-    id: 3,
-    name: 'United Nations',
-    location: 'Worldwide',
-    description: 'Peacekeeping and humanitarian support.',
-    tags: ['education', 'global aid'],
-    logo: require('../../assets/images/User.png'),
-  },
+    id: "org2",
+    name: "UNICEF",
+    description: "Aid and development programs for children.",
+    location: "Worldwide",
+    tags: ["Children", "Education", "Health"],
+    logo: "/images/unicef-logo.png",
+    address: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+  }
 ];

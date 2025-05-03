@@ -27,5 +27,8 @@
     "react-leaflet": "^5.0.0",
     "react-scripts": "^5.0.1",
     "web3": "^1.10.4"
+  },
+  "devDependencies": {
+    "hardhat": "^2.23.0"
   }
 }

@@ -13,11 +13,21 @@
 
 # misc
 .DS_Store
+
+# env files
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
+# Hardhat build & cache
+/artifacts
+/cache
+hardhat.log
+
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log

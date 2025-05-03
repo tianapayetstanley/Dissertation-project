@@ -9,10 +9,15 @@ import { aidDeliveries } from './components/data/mockData';
 import AppRoutes from './routes/routes';
 import { useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import AidBoxTracker from './contracts/AidBoxTracker.json';
 
 const App = () => {
   const [account, setAccount] = useState('');
   const [searchValue, setSearchValue] = useState('');
+  const [contract, setContract] = useState(null);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -20,7 +25,19 @@ const App = () => {
       const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545');
       const accounts = await web3.eth.getAccounts();
       setAccount(accounts[0]);
+      console.log("✅ Account connected:", accounts[0]);
+
+      // ✅ HARDCODE your deployed contract address here:
+      const contractAddress = "0x5fBD2315678afecb367f032d93f642f641800aa3";
+
+      const instance = new web3.eth.Contract(
+        AidBoxTracker.abi,
+        contractAddress
+      );
+      setContract(instance);
+      console.log("✅ Contract loaded:", instance);
     };
+
     loadBlockchainData();
   }, []);
 
@@ -83,7 +100,8 @@ const App = () => {
                 ))}
               </>
             )}
-            <AppRoutes account={account} />
+            <AppRoutes account={account} contract={contract} />
+            <ToastContainer position="top-right" autoClose={3000} />
           </div>
         </div>
       </div>

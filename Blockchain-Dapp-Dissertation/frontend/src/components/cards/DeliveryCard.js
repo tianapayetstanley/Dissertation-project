@@ -1,8 +1,7 @@
 import React from 'react';
 import './DeliveryCard.css';
 import boxImg from '../../assets/images/aidbox.png';
-import profileImg from '../../assets/images/charity_recipent_circle.png'; // Update to your image filename
-
+import profileImg from '../../assets/images/charity_recipent_circle.png'; 
 const DeliveryCard = ({ delivery }) => {
   return (
     <div className="card-container">

@@ -1,8 +1,26 @@
 import React from 'react';
 import './OrgPage.css';
 import { orgs } from '../components/data/mockOrgs';
+import { getContract } from "../contracts/aidBoxTracker";
+import { toast } from 'react-toastify';
 
-const OrgPage = () => {
+const OrgPage = ({ contract, account }) => {
+  const handleCollaboration = async (orgAddress, orgName) => {
+    try {
+      if (!contract || !account) {
+        toast.error("Contract or account not loaded");
+        return;
+      }
+
+      const tx = await contract.requestCollaboration(orgAddress, `We’d like to collaborate with ${orgName}`);
+      await tx.wait();
+
+      toast.success(`🤝 Collaboration request sent to ${orgName}`);
+    } catch (err) {
+      toast.error("❌ Collaboration failed: " + err.message);
+    }
+  };
+
   return (
     <div className="blurred-container org-page">
       <h2 className="org-heading">Explore Partner Organizations</h2>
@@ -19,7 +37,12 @@ const OrgPage = () => {
               ))}
             </div>
             <div className="org-actions">
-              <button className="btn btn-outline-primary">Collaborate</button>
+              <button
+                className="btn btn-outline-primary"
+                onClick={() => handleCollaboration(org.address, org.name)}
+              >
+                Collaborate
+              </button>
               <button className="btn btn-outline-success">Share Funds</button>
             </div>
           </div>

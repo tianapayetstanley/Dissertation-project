@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/tiana/Blockchain-Dapp-Dissertation/backend/contracts/AidBoxTracker.sol": {
+      "lastModificationDate": 1746271063657,
+      "contentHash": "d29ba96359a34e479cfe3dba99933a07",
+      "sourceName": "contracts/AidBoxTracker.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AidBoxTracker"
+      ]
+    }
+  }
+}

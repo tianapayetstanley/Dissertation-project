@@ -6,15 +6,18 @@ import DeliveriesPage from '../pages/DeliveriesPage';
 import OrgPage from '../pages/OrgPage';
 import AboutPage from '../pages/AboutPage';
 
-const AppRoutes = ({ account }) => {
+const AppRoutes = ({ account, contract }) => {
   return (
     <Routes>
       <Route path="/" element={<DashboardPage />} />
       <Route path="/deliveries" element={<DeliveriesPage />} />
-      <Route path="/organizations" element={<OrgPage />} />
+      <Route
+        path="/organizations"
+        element={<OrgPage account={account} contract={contract} />}
+      />
       <Route
         path="/org"
-        element={account ? <OrgPage account={account} /> : <Navigate to="/" />}
+        element={account ? <OrgPage account={account} contract={contract} /> : <Navigate to="/" />}
       />
       <Route path="/about" element={<AboutPage />} />
     </Routes>
