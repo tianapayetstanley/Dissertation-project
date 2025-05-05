@@ -1,3 +1,191 @@
+});
+  value: ethers.utils.parseEther("10") // Sends 10 ETH
+  to: "0x10631CaA798eE703fc681182BB18390510d7D95b",
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners(); // Account 0 by default
+});
+  value: ethers.utils.parseEther("10") // Sends 10 ETH
+  to: "0x10631CaA798eE703fc681182BB18390510d7D95b",
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners(); // Account 0 by default
+ethers.utils.formatEther(balance);
+balance = await provider.getBalance("0x10631CaA798eE703fc681182BB18390510d7D95b");
+provider = ethers.provider;
+});
+  value: ethers.utils.parseEther("10") // Sends 10 ETH
+  to: "0x10631CaA798eE703fc681182BB18390510d7D95b",
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners(); // Account 0 by default
+await contract.getAidBox(0);
+await tx1.wait();
+const tx1 = await contract.connect(signer).addAidBox("Emergency Supplies", "Pending");
+const contract = await factory.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3");
+const factory = await ethers.getContractFactory("AidBoxTracker");
+const [signer] = await ethers.getSigners();
+await tx.wait(); // ✅ Step 5: wait for transaction to confirm
+const tx = await contract.connect(signer).addAidBox("Emergency Supplies", "Pending"); // ✅ Step 4: call with signer
+const contract = await AidBoxTracker.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3"); // ✅ Step 3: attach contract
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker"); // ✅ Step 2: get contract factory
+const [signer] = await ethers.getSigners(); // ✅ Step 1: get signer
+await tx.wait(); // wait for mining
+const tx = await contract.connect(signer).addAidBox("Emergency Supplies", "Pending"); // ✅ connect signer!
+const contract = await AidBoxTracker.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3"); // your deployed address
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker");
+const [signer] = await ethers.getSigners(); // ✅ Grab a signer
+await contract.addAidBox("Emergency Supplies", "Pending");
+const contract = await AidBoxTracker.attach("YOUR_DEPLOYED_ADDRESS_HERE");
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker");
+.exit
+const contract = await AidBoxTracker.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3");
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker");
+await contract.getAidBox(0);
+await contract.addAidBox("Emergency Supplies", "Pending");
+const contract = await AidBoxTracker.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3");
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker");
+await contract.getAidBox(0)
+const contract = await AidBoxTracker.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3");
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker");
+await contract.getAidBox(0)
+await contract.addAidBox("Emergency Supplies", "Pending")
+await contract.getAidBox(0)
+// Step 2: Check if Box ID 0 exists
+const contract = await AidBoxTracker.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3"); // Replace with your deployed contract address
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker");
+// Step 1: Get the contract instance
+])
+  "0x56BC75E2D63100000"                         // 100 ETH in hex (10^20 wei)
+  "0x10631CaA798eE703fc681182BB18390510d7D95b",  // Your MetaMask address
+await ethers.provider.send("hardhat_setBalance", [
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // Red Cross
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners();
+const ethers = require("ethers");
+const [sender] = await ethers.getSigners(); // works directly in Hardhat console
+const [sender] = await hre.ethers.getSigners();
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // Red Cross
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners();
+const { ethers } = require("ethers");
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3",  // UNICEF
+await sender.sendTransaction({
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39",  // Red Cross
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners();
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3",
+await sender.sendTransaction({
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39",
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners();
+const { ethers } = require("hardhat");
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3", // UNICEF
+await sender.sendTransaction({
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // Red Cross
+await sender.sendTransaction({
+const [sender] = await hre.ethers.getSigners(); // 'hre' is exposed in the Hardhat console
+const ethers = require("ethers");
+const { ethers } = require("ethers");
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39",
+signer.sendTransaction({
+const signer = provider.getSigner(0);
+const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
+const { ethers } = require("ethers");
+});
+  value: hre.ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3", // UNICEF address
+await sender.sendTransaction({
+});
+  value: hre.ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // Red Cross address
+await sender.sendTransaction({
+const [sender] = await hre.ethers.getSigners(); // Works in hardhat console
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39",
+await sender.sendTransaction({
+const sender = await ethers.getSigner();
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3", // UNICEF
+await sender.sendTransaction({
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // Red Cross
+await sender.sendTransaction({
+const [sender] = await hre.ethers.getSigners(); // 'hre' is exposed in the Hardhat console
+const ethers = require("ethers");
+const { ethers } = require("hardhat");
+});
+  value: hre.ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3", // UNICEF address
+await sender.sendTransaction({
+});
+  value: hre.ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // Red Cross address
+await sender.sendTransaction({
+const [sender] = await hre.ethers.getSigners(); // Works in hardhat console
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39",
+signer.sendTransaction({
+const signer = provider.getSigner(0);
+const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
+const { ethers } = require("ethers");
+const { ethers } = require("hardhat");
+});
+  value: hre.ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3", // UNICEF address
+await sender.sendTransaction({
+});
+  value: hre.ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // Red Cross address
+await sender.sendTransaction({
+const [sender] = await hre.ethers.getSigners(); // Works in hardhat console
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39",
+await sender.sendTransaction({
+const sender = await ethers.getSigner();
+const ethers = require("ethers");
+const { ethers } = require("hardhat");
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3",  // UNICEF
+await sender.sendTransaction({
+});
+  value: ethers.utils.parseEther("10")
+  to: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39",  // Red Cross
+await sender.sendTransaction({
+const [sender] = await ethers.getSigners();
+])
+  "0x56BC75E2D63100000"                         // = 100 ETH
+  "0x10631CaA798eE703fc681182BB18390510d7D95b", // your MetaMask
+await ethers.provider.send("hardhat_setBalance", [
+])
+  "0x56BC75E2D63100000" // 100 ETH in hex
+  "0x10631CaA798eE703fc681182BB18390510d7D95b", // your MetaMask address
+await ethers.provider.send("hardhat_setBalance", [
+])
+  "0x56BC75E2D63100000" // = 100 ETH in hex
+  "0x10631CaA798eE703fc681182BB18390510d7D95b", // ← your MetaMask address
+await ethers.provider.send("hardhat_setBalance", [
 npx hardhat node
 await ethers.provider.getBalance("0x10631CaA798eE703fc681182BB18390510d7D95b")
 }])

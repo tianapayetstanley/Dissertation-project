@@ -30,7 +30,7 @@ const App = () => {
           await window.ethereum.request({ method: 'eth_requestAccounts' });
   
           const accounts = await web3.eth.getAccounts();
-          setAccount(accounts[0]);
+          setAccount(accounts[0]); // Save for use in `from:` when sending tx
           console.log("✅ MetaMask account connected:", accounts[0]);
   
           // 🔗 HARDCODED deployed contract address
@@ -53,6 +53,7 @@ const App = () => {
   
     loadBlockchainData();
   }, []);
+  
   
   
   const filteredDeliveries = aidDeliveries.filter((d) =>

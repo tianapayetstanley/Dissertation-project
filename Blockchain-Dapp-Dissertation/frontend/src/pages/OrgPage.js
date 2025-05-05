@@ -1,9 +1,10 @@
 import React from 'react';
 import './OrgPage.css';
 import { orgs } from '../components/data/mockOrgs';
+import { connectWallet, getContract, switchToHardhatNetwork } from "../utils/ethereum"; //  make sure switchToHardhatNetwork is imported
 
-import { connectWallet, getContract } from "../utils/ethereum"; // ✅ MetaMask + contract helper
-import { ethers } from "ethers"; // ✅ Needed for parseEther and address checksum
+//import { connectWallet, getContract } from "../utils/ethereum"; //  MetaMask + contract helper
+import { ethers } from "ethers"; //  Needed for parseEther and address checksum
 import { toast } from 'react-toastify';
 
 // ❌ Removed because it's unused directly in this file (you use getContract instead)
@@ -32,18 +33,15 @@ const OrgPage = ({ contract, account }) => {
 
   const handleShareFunds = async (recipientAddress) => {
     try {
-      console.log("💡 raw recipient address:", recipientAddress);
+      await switchToHardhatNetwork(); //  Force MetaMask to switch to Hardhat
   
-      const connected = await connectWallet();
-      if (!connected) {
-        return;
-      }
+      const connected = await connectWallet(); // open MetaMask
+      if (!connected) return;
   
-      const contract = getContract();
+      const contract = getContract(); // get signer-enabled contract
       const boxId = 0;
   
       const checksummedAddress = ethers.utils.getAddress(recipientAddress);
-      console.log("✅ checksummed address:", checksummedAddress);
   
       const tx = await contract.shareFunds(checksummedAddress, boxId, {
         value: ethers.utils.parseEther("0.00001"),
@@ -55,6 +53,8 @@ const OrgPage = ({ contract, account }) => {
       toast.error("❌ Sharing funds failed: " + err.message);
     }
   };
+  
+  
   
   
 
@@ -82,7 +82,7 @@ const OrgPage = ({ contract, account }) => {
               </button>
               <button
                 className="btn btn-outline-success"
-                onClick={() => handleShareFunds(org.address)} // 👈 wired here
+                onClick={() => handleShareFunds(org.address)} //  wired here
               >
                 Share Funds
               </button>

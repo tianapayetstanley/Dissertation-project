@@ -5,7 +5,7 @@ export const orgs = [
     logo: "🩺 Red Cross",
     description: "Disaster relief and emergency support.",
     location: "Global",
-    address: "0x86AF90dEC474618DFCb911e2617B74773C3B1B39", // ✅ Already checksummed
+    address: "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199", // Account #0
     tags: ["Relief", "Medical", "Global"]
   },
   {
@@ -14,7 +14,7 @@ export const orgs = [
     logo: "👶 UNICEF",
     description: "Aid and development programs for children.",
     location: "Worldwide",
-    address: "0x5FbD231567aFbEc3B67032d9F362f461B00a30C3", // ✅ Already checksummed
+    address: "0x90F79bf6EB2c4f870365E785982E1f101E93b906", // Account #1
     tags: ["Children", "Education", "Health"]
   }
 ];

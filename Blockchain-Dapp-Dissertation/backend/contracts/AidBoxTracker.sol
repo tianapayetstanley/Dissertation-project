@@ -17,8 +17,14 @@ contract AidBoxTracker {
     // Mapping to store aid boxes by ID
     mapping(uint256 => AidBox) public aidBoxes;
 
+    // Optional GPS location data
+    mapping(uint256 => string) public boxCoordinates; // boxId => "lat,long"
+
     // Counter for aid box IDs
     uint256 public nextId;
+
+    //  NEW: Logged GPS hashes (on-chain audit)
+    event LocationLogged(uint256 indexed boxId, string lat, string lon, uint256 timestamp);
 
     // Event for updating aid box status
     event AidBoxStatusUpdated(uint256 id, string newStatus);
@@ -26,13 +32,16 @@ contract AidBoxTracker {
     // Event for organization collaboration requests
     event CollaborationRequested(address fromOrg, address toOrg, string details);
 
-    // 🚀 New Event: Log fund-sharing transactions with metadata
+    //  New Event: Log fund-sharing transactions with metadata
     event FundsShared(
         address indexed sender,
         address indexed receiver,
         uint256 boxId,
         uint256 timestamp
     );
+
+    //  Event for location updates
+    event LocationUpdated(uint256 indexed boxId, string latlong, uint256 timestamp);
 
     constructor() {
         owner = msg.sender; // Set contract deployer as the owner
@@ -82,7 +91,7 @@ contract AidBoxTracker {
         emit CollaborationRequested(msg.sender, toOrg, details);
     }
 
-    // 💸 New Function: Simulate fund transfer and update aid box status
+    //  New Function: Simulate fund transfer and update aid box status
     function shareFunds(address toOrg, uint256 boxId) external payable {
         require(toOrg != address(0), "Invalid receiver");
         require(msg.value > 0, "No ETH sent");
@@ -98,5 +107,18 @@ contract AidBoxTracker {
         // Optional: automatically update box status
         aidBoxes[boxId].status = "Received Funds";
         emit AidBoxStatusUpdated(boxId, "Received Funds");
+    }
+
+    //  GPS Location Tracker Function
+    function updateLocation(uint256 boxId, string memory latlong) public {
+        require(boxId < nextId, "Invalid Box ID");
+        boxCoordinates[boxId] = latlong;
+        emit LocationUpdated(boxId, latlong, block.timestamp);
+    }
+
+    //  NEW FUNCTION: Hashable GPS logger for transparency audit
+    function logLocation(uint256 boxId, string memory lat, string memory lon) public {
+        require(boxId < nextId, "Invalid Box ID");
+        emit LocationLogged(boxId, lat, lon, block.timestamp);
     }
 }
