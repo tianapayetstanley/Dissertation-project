@@ -1,40 +1,35 @@
 import React, { useState } from 'react';
-import { ethers } from 'ethers';
-import AidBoxTracker from '../contracts/AidBoxTracker.json'; // ABI
-import useLiveLocation from '../hooks/useLiveLocation'; // Custom hook
+import useLiveLocation from '../hooks/useLiveLocation';
+import { getContract } from '../utils/ethereum';
 
-const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Replace with current deployed address
-
-const LogLocationButton = () => {
-  const [loading, setLoading] = useState(false);
+const LogLocationButton = ({ boxId = 0 }) => {
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const location = useLiveLocation();
-  const coords = location?.coords || null;
-  
-  const handleLogLocation = async () => {
-    if (!coords) {
-      setMessage('📡 Location not available yet.');
+
+  const handleClick = async () => {
+    if (!location) {
+      setMessage('📍 Location not available yet');
       return;
     }
 
+    const coords = `${location.lat},${location.lng}`;
+
     try {
+      const contract = getContract();
+      if (!contract.updateLocation) {
+        setMessage('❌ updateLocation not available on contract');
+        console.error("updateLocation not found on contract instance");
+        return;
+      }
+
       setLoading(true);
-      setMessage('⏳ Logging to blockchain...');
-
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(contractAddress, AidBoxTracker.abi, signer);
-
-      const latlong = `${coords[0]},${coords[1]}`;
-      const boxId = 0; // ake this dynamic later
-
-      const tx = await contract.updateLocation(boxId, latlong);
+      const tx = await contract.updateLocation(boxId, coords);
       await tx.wait();
-
-      setMessage('✅ Location logged on-chain!');
-    } catch (error) {
-      console.error(error);
-      setMessage('❌ Failed to log location.');
+      setMessage('✅ Location logged to blockchain');
+    } catch (err) {
+      console.error('❌ Logging failed', err);
+      setMessage('❌ Failed to log location');
     } finally {
       setLoading(false);
     }
@@ -42,14 +37,10 @@ const LogLocationButton = () => {
 
   return (
     <div style={{ marginTop: '1rem' }}>
-      <button
-        onClick={handleLogLocation}
-        disabled={loading}
-        style={{ padding: '10px 20px', background: '#eee' }}
-      >
-        Log GPS to Blockchain
+      <button onClick={handleClick} disabled={loading}>
+        Log Current Location 📍
       </button>
-      {message && <p>{message}</p>}
+      <p style={{ color: message.startsWith('❌') ? 'red' : 'green' }}>{message}</p>
     </div>
   );
 };

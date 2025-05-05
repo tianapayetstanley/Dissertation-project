@@ -12,6 +12,12 @@ async function main() {
 
   // Log deployed address
   console.log("AidBoxTracker deployed to:", await contract.getAddress());
+
+  // Add a test aid box for development use
+  const tx = await contract.addAidBox("Test Box", "Pending");
+  await tx.wait(); // Ensure it's mined
+
+  console.log("📦 Seeded Box 0 with status: Pending");
 }
 
 main()

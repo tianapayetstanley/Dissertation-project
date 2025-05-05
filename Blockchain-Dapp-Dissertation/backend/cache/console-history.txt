@@ -1,3 +1,8 @@
+npx hardhat run scripts/deploy.js --network localhost
+npx hardhat compile
+await contract.addAidBox("Test Box", "Pending")
+const contract = await AidBoxTracker.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3") // replace if needed
+const AidBoxTracker = await ethers.getContractFactory("AidBoxTracker")
 });
   value: ethers.utils.parseEther("10") // Sends 10 ETH
   to: "0x10631CaA798eE703fc681182BB18390510d7D95b",

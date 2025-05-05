@@ -1,10 +1,10 @@
 import React from 'react';
 import TrackerMap from '../components/TrackerMap';
-import LogLocationButton from '../components/LogLocationButton'; // Import logging button
+import LogLocationButton from '../components/LogLocationButton';
 
 const DashboardPage = () => {
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container" style={{ minHeight: '100vh', padding: '1rem' }}>
       <h2>Live Aid Box Tracker</h2>
 
       {/* ✅ Live GPS map with aid box tracking */}

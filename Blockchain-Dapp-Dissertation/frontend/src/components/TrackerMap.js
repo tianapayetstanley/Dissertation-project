@@ -5,9 +5,9 @@ import 'leaflet/dist/leaflet.css';
 import { aidDeliveries } from './data/mockData';
 import { orgs as orgLocations } from './data/mockOrgs';
 
-import useLiveLocation from '../hooks/useLiveLocation'; //  Custom hook to get mobile location
+import useLiveLocation from '../hooks/useLiveLocation'; // 📍 Custom hook for mobile GPS
 
-// Fix Leaflet marker icon paths
+// 🛠️ Fix Leaflet marker icon path issue
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -19,15 +19,18 @@ L.Icon.Default.mergeOptions({
 });
 
 const TrackerMap = () => {
-  const livePosition = useLiveLocation(); // Live GPS from phone
+  const livePosition = useLiveLocation(); // 📡 Mobile live GPS
 
-  // Just track first delivery statically for now
   const delivery = aidDeliveries[0];
-  const origin = orgLocations[delivery.originOrg];
-  const destination = orgLocations[delivery.destinationOrg];
+  const origin = orgLocations[delivery.originOrg] || [51.5, -0.09]; // Fallback: London
+  const destination = orgLocations[delivery.destinationOrg] || [40.7, -74.0]; // Fallback: New York
 
   return (
-    <MapContainer center={origin} zoom={3} style={{ height: '500px', width: '100%' }}>
+    <MapContainer
+      center={livePosition ? [livePosition.lat, livePosition.lng] : origin} // 🧭 Prefer live location
+      zoom={3}
+      style={{ height: '500px', width: '100%' }}
+    >
       <TileLayer
         attribution='&copy; OpenStreetMap contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -43,9 +46,9 @@ const TrackerMap = () => {
         <Popup>🎯 Destination: {delivery.destinationOrg}</Popup>
       </Marker>
 
-      {/* 🚶 Live position marker (mobile) */}
+      {/* 🚶 Live position marker (you) */}
       {livePosition && (
-        <Marker position={livePosition}>
+        <Marker position={[livePosition.lat, livePosition.lng]}>
           <Popup>📡 Current Location (You)</Popup>
         </Marker>
       )}

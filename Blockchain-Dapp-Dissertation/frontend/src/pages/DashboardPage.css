@@ -1,5 +1,4 @@
-.dashboard-container {
-    min-height: 500px;
-    padding: 1rem;
-  }
-  
+.map-container {
+  min-height: 500px;
+  width: 100%;
+}

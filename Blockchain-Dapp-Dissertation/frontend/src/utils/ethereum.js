@@ -1,9 +1,9 @@
 import { ethers } from "ethers";
-import AidBoxTracker from '../contracts/AidBoxTracker.json'; // ✅ ABI JSON file inside frontend/src/contracts
+import AidBoxTracker from '../contracts/AidBoxTracker.json'; //  ABI JSON file inside frontend/src/contracts
 
-const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // ✅ Replace with your deployed contract address
+const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // Replace with your deployed contract address
 
-// ✅ Ensures MetaMask is using the Hardhat local network before any tx
+//  Ensures MetaMask is using the Hardhat local network before any tx
 export async function switchToHardhatNetwork() {
   try {
     await window.ethereum.request({
@@ -53,7 +53,7 @@ export async function connectWallet() {
   }
 }
 
-// 📦 Returns the contract instance connected to the signer
+//  Returns the contract instance connected to the signer
 export function getContract() {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
