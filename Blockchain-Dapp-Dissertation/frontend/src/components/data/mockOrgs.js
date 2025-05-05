@@ -1,3 +1,4 @@
+//Metadata about each organization	
 export const orgs = [
   {
     id: 1,

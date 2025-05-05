@@ -26,14 +26,14 @@ const App = () => {
         try {
           const web3 = new Web3(window.ethereum);
   
-          // 🔐 Request MetaMask account access
+          //  Request MetaMask account access
           await window.ethereum.request({ method: 'eth_requestAccounts' });
   
           const accounts = await web3.eth.getAccounts();
           setAccount(accounts[0]); // Save for use in `from:` when sending tx
           console.log("✅ MetaMask account connected:", accounts[0]);
   
-          // 🔗 HARDCODED deployed contract address
+          // HARDCODED deployed contract address
           const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   
           const instance = new web3.eth.Contract(

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { aidDeliveries } from './data/mockData';
+import { orgs as orgLocations } from './data/mockOrgs';
 
-import { orgLocations } from '../data/orgLocations';
-import { aidDeliveries } from '../data/mockOrgs';
 import useLiveLocation from '../hooks/useLiveLocation'; //  Custom hook to get mobile location
 
 // Fix Leaflet marker icon paths
