@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 
 import { orgLocations } from '../data/orgLocations';
 import { aidDeliveries } from '../data/mockOrgs';
-import useLiveLocation from './useLiveLocation'; //  Custom hook to get mobile location
+import useLiveLocation from '../hooks/useLiveLocation'; //  Custom hook to get mobile location
 
 // Fix Leaflet marker icon paths
 delete L.Icon.Default.prototype._getIconUrl;
