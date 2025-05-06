@@ -1,33 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { aidDeliveries } from './data/mockData';
 import { orgs as orgLocations } from './data/mockOrgs';
+import useLiveLocation from '../hooks/useLiveLocation';
 
-import useLiveLocation from '../hooks/useLiveLocation'; // 📍 Custom hook for mobile GPS
-
-// 🛠️ Fix Leaflet marker icon path issue
+// Fix Leaflet marker icon path issue for default icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
+const boxEmojiIcon = L.divIcon({
+  html: '📦',
+  className: 'emoji-icon',
+  iconSize: [32, 32],
+});
+
+
+
 const TrackerMap = () => {
-  const livePosition = useLiveLocation(); // 📡 Mobile live GPS
+  const livePosition = useLiveLocation();
 
   const delivery = aidDeliveries[0];
-  const origin = orgLocations[delivery.originOrg] || [51.5, -0.09]; // Fallback: London
-  const destination = orgLocations[delivery.destinationOrg] || [40.7, -74.0]; // Fallback: New York
+  const origin = orgLocations[delivery.originOrg] || [51.5, -0.09];
+  const destination = orgLocations[delivery.destinationOrg] || [40.7, -74.0];
 
   return (
     <MapContainer
-      center={livePosition ? [livePosition.lat, livePosition.lng] : origin} // 🧭 Prefer live location
+      center={livePosition ? [livePosition.lat, livePosition.lng] : origin}
       zoom={3}
       style={{ height: '500px', width: '100%' }}
     >
@@ -35,20 +39,20 @@ const TrackerMap = () => {
         attribution='&copy; OpenStreetMap contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-
+  
       {/* 🏢 Origin marker */}
-      <Marker position={origin}>
+      <Marker position={origin} icon={boxEmojiIcon}>
         <Popup>📦 Sent From: {delivery.originOrg}</Popup>
       </Marker>
-
+  
       {/* 🎯 Destination marker */}
-      <Marker position={destination}>
+      <Marker position={destination} icon={boxEmojiIcon}>
         <Popup>🎯 Destination: {delivery.destinationOrg}</Popup>
       </Marker>
-
-      {/* 🚶 Live position marker (you) */}
+  
+      {/* 🚶 Live position marker */}
       {livePosition && (
-        <Marker position={[livePosition.lat, livePosition.lng]}>
+        <Marker position={[livePosition.lat, livePosition.lng]} icon={boxEmojiIcon}>
           <Popup>📡 Current Location (You)</Popup>
         </Marker>
       )}
