@@ -1,6 +1,8 @@
 import React from 'react';
 import TrackerMap from '../components/TrackerMap';
 import LogLocationButton from '../components/LogLocationButton';
+import LocationLogViewer from '../components/LocationLogViewer';
+
 
 const DashboardPage = () => {
   return (
@@ -13,6 +15,7 @@ const DashboardPage = () => {
       {/* ✅ Button: Log current GPS location to blockchain */}
       <div style={{ marginTop: '20px' }}>
         <LogLocationButton boxId={0} />
+        <LocationLogViewer boxId={0} />
       </div>
     </div>
   );
