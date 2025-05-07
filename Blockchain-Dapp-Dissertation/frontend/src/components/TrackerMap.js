@@ -20,6 +20,24 @@ const boxEmojiIcon = L.divIcon({
   iconSize: [32, 32],
 });
 
+// Emoji-based divIcons
+const originIcon = L.divIcon({
+  html: '📤',
+  className: 'emoji-icon',
+  iconSize: [32, 32],
+});
+
+const destinationIcon = L.divIcon({
+  html: '🎯',
+  className: 'emoji-icon',
+  iconSize: [32, 32],
+});
+
+const liveIcon = L.divIcon({
+  html: '🚶',
+  className: 'emoji-icon',
+  iconSize: [32, 32],
+});
 
 
 const TrackerMap = () => {
@@ -40,24 +58,28 @@ const TrackerMap = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
   
-      {/* 🏢 Origin marker */}
-      <Marker position={origin} icon={boxEmojiIcon}>
-        <Popup>📦 Sent From: {delivery.originOrg}</Popup>
+      {/* 📤 Origin marker */}
+      <Marker position={origin} icon={L.divIcon({ html: '📤', className: 'emoji-icon', iconSize: [32, 32] })}>
+        <Popup>📤 Sent From: {delivery.originOrg}</Popup>
       </Marker>
   
       {/* 🎯 Destination marker */}
-      <Marker position={destination} icon={boxEmojiIcon}>
+      <Marker position={destination} icon={L.divIcon({ html: '🎯', className: 'emoji-icon', iconSize: [32, 32] })}>
         <Popup>🎯 Destination: {delivery.destinationOrg}</Popup>
       </Marker>
   
-      {/* 🚶 Live position marker */}
+      {/* 🚚 Live delivery truck position */}
       {livePosition && (
-        <Marker position={[livePosition.lat, livePosition.lng]} icon={boxEmojiIcon}>
-          <Popup>📡 Current Location (You)</Popup>
+        <Marker
+          position={[livePosition.lat, livePosition.lng]}
+          icon={L.divIcon({ html: '🚚', className: 'emoji-icon', iconSize: [32, 32] })}
+        >
+          <Popup>🚚 In Transit (Live)</Popup>
         </Marker>
       )}
     </MapContainer>
   );
+  
 };
 
 export default TrackerMap;
